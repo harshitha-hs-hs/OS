@@ -1,0 +1,31 @@
+%{
+   int ch=0,sp=0, wd=0,ln=0,i
+%}
+%%
+(\n) (In++;} [^\tln 3+ {ch+=yyleng, wd++;} n "sp++;}
+%%
+
+int main (int argc,char *argv []) 
+{
+++argV, - -argc; 
+if (argc>0)
+yyin = fopen(argv[0],"r");
+else 
+yyin=stdin; 
+yylex (); 
+
+printf ("Number of characters:%d\n",ch);
+printf "Number of spaces:%d\n", sp); 
+printi( "NumTer of words:%d\n", wd); 
+printf("Number of lines:%d\n", ln); 
+}
+Save the lex code program with .l extension. 
+Create a file using the editor command and write the content of the file ~] # vi data.txt 
+[root@localhost ~]# lex filename.1 
+[root@localhost 
+OUTPUT 
+[root@localhost ~] # cc lex.yy.c -11 
+/*For count ing the line*/ 
+/*For the character and words*/ 
+/*For counting the space*/ 
+~) # ./a.out data.txt
