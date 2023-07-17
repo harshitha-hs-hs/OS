@@ -1,0 +1,25 @@
+%{
+int flag= 0; 
+%}
+%%
+" and " |
+" but " |
+" because " | 
+" than " | 
+" nevertheless " {flag=l;} 
+%%
+int main () 
+{
+printf ("Enter the sentence: \n"); 
+yylex (); 
+  if (flag==1) 
+    printf ("Given sentence 1s compound statement\n"); 
+  else 
+    printf ("Given sentence is simple statement\n");
+
+    
+Save the lex code Program with .1 extension 
+(root@localh0st ~]# lex filename.l 
+/*Words which leads to the compound statement */ 
+[rootelocalhost -]# cc lex.yó.c -l1 
+[root@localhost ~] # ./a.out 
