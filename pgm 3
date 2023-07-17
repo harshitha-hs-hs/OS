@@ -1,0 +1,28 @@
+%{
+int count=0, ids=0, bracket-0; 
+%}
+%%
+[+] {printf ("+"); Count++;} 
+[-] {printf (" - ");count++;} 
+[*] {printf ("*") ; Count++; }
+[/] {printf ("/");count++;} 
+[a-zÀ- Z0-9) + {ids++;} 
+[(] { bracket++;}  
+[)] {bracket--;} 
+%%
+int main()
+{
+printf ("Enter the Arithmet ic expression:\n");
+yylx (); 
+print f ("Number of Operators=%d\n",ount) ; 
+printf ("Number of Identifiers=%d\n ", ids); 
+if (count>=ids||bracket!=0|| ids==1) 
+  printf ("Invalid expression\n"); 
+else 
+  printf("Valid expression\n"): 
+
+
+Save the lex code Proqram with .1 extension 
+(root@localhost ~]# lex filename.l 
+[root@localhost ~]# c lex.yy.c -l1 
+[rootalocalhost ~ # ./a.out 
