@@ -1,0 +1,36 @@
+%{
+int Comment=0; 
+%}
+%%
+{ 
+"/*"[\n]*.*|\n) *"*/" comment++;} 
+"/*"[\"*/"]* fprintf (yyout, " ");} 
+%%
+int main() 
+{
+char infile [256],outfile [256] ; 
+printf ("Enter the input filename :\n"); 
+Scanf("%s", infile); 
+printE ("Enter the output filename:\n"); 
+Scanf ("%s", outfile); 
+yyin=fopen (infile, "r"); 
+yyout =fopen (out file, "w"); 
+yylex ();
+printf ( "Number of comment lines in the qiven file: %d\n", comment) ; 
+}
+
+Save the lex code Program with .l extension. 
+Create a file using the editor command and write the content with COmment 
+line 
+[root@localhost ~] # vi sum.c 
+/*To find the sum of twWO numbers*/ 
+#include<stdio.h> 
+void main () 
+{
+int a=1,b=2 ; 
+print f ("%d", a+b); 
+}
+
+[root@localhost ~] # lex filename.1 
+[root@localhost ~] # cc lex.yy.c -ll 
+[rootal ocalhost ~# ./a.out 
