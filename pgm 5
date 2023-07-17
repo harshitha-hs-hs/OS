@@ -1,0 +1,41 @@
+%{
+#inciude"y.tab.h"
+%}
+%%
+[0-9] {retun DIG;} 
+(a-z) {return LET:} 
+.     {return yytext (0]:} 
+\n    {return 0;} 
+%%
+%token LET 
+%token DIG 
+%%
+stmt : id printf ("Valid identifier \n);} 
+     ;
+id: letter next 
+  |letter {;} 
+  ;
+next: letter next 
+    |digit next 
+    |letter 
+    | digit{;} 
+    ;
+letter: LET {:} 
+      ;
+digit: DIG {;} 
+     ;
+%%
+int main()
+{
+printf ("Enter an identifier: "); 
+YYparse(); 
+int yyerror () 
+  printf ("Not a valid identifier\n"): 
+  exit (O); 
+
+
+save the lex Code Program with .l extension 
+save the yacc code Program with .y extension 
+TOot@lOcalhost ~]# ./a.out 
+OOt@localhost ~ # vagc -d filename .y 
+root@localhost ~)# cc lex.yy.c y.tab.c -11 
