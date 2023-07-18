@@ -1,0 +1,43 @@
+%{
+  #include"y.tab.h"
+  extern int yylval;
+%}
+%%
+[0-9] + (yylval=atoi(yytext); return (NUM);} 
+[\t];
+ .     {return yytext [0];} 
+  \n    {return 0;} 
+%%
+
+YACC PART
+
+%token NUM 
+%left '+''-'
+%left '*''/'
+%%
+stmt : expr { printf ("Result:%d\n",$1) ;return 0; }
+     ;
+expr :expr'+'expr  {$$=$1+$3;}
+| expr'-'eXpr      {$$=$1-$3;} 
+| expr*eXpr        {$$=$1*$3;}
+| expr'/'expr      {$$=$1/$3;} 
+| '('expr')'       {$$=-$2 ;} 
+| NUM               {$$=$1;} 
+;
+%%
+
+int main() 
+ {
+   printf ("Enter the expression\n"); 
+   YYparse ();
+}
+int yyerror () 
+{
+  printf (" Lnvalid input\n"); 
+  exit (0); 
+}
+ 
+
+
+
+
