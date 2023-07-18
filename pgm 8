@@ -1,0 +1,37 @@
+%{
+  #include "y.tab.h" 
+%}
+%%
+[a-zÀ-Z] [a-zA-Z0-9) *  { return ID}
+[0-9]*                  { return NUMBER}
+.                       { return yytext[0];}
+\n                      { return 0;}
+%%
+
+YACC PART
+
+%token NUMBER ID 
+%left '+''-' 
+%left '*''/' 
+%%
+expr :expr'+'expr  
+| expr'-'eXpr     
+| expr*eXpr        
+| expr'/'expr     
+| '('expr')'       
+| NUMBER
+| ID
+;
+%%
+
+int main() 
+ {
+   printf ("Enter the expression\n"); 
+   YYparse ();
+   printf("Valid Expression");
+}
+int yyerror () 
+{
+  printf (" Expression is invalid\n");
+  exit(0);
+}
